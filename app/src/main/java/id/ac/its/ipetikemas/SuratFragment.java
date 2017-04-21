@@ -22,6 +22,7 @@ import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
 import static android.os.Looper.getMainLooper;
+import static java.lang.Thread.interrupted;
 
 
 /**
@@ -38,6 +39,8 @@ public class SuratFragment extends Fragment {
     TextView tanggal;
     @BindView(R.id.waktu)
     TextView waktu;
+
+    Handler someHandler;
 
     public SuratFragment() {
         // Required empty public constructor
@@ -57,12 +60,15 @@ public class SuratFragment extends Fragment {
         SuratRecyclerAdapter adapter = new SuratRecyclerAdapter(getActivity(), surat_items);
         listsurat.setAdapter(adapter);
         tanggal.setText("Sabtu, 22 April 2017");
-        final Handler someHandler = new Handler(getMainLooper());
+        someHandler = new Handler(getMainLooper());
         someHandler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                waktu.setText(new SimpleDateFormat("HH:mm:ss", Locale.US).format(new Date()));
-                someHandler.postDelayed(this, 1000);
+                if (interrupted()) {
+                    return;
+                }
+                    waktu.setText(new SimpleDateFormat("HH:mm:ss", Locale.US).format(new Date()));
+                    someHandler.postDelayed(this, 1000);
             }
         }, 10);
         return view;
@@ -71,6 +77,7 @@ public class SuratFragment extends Fragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
+        someHandler.removeCallbacksAndMessages(null);
         unbinder.unbind();
     }
 
@@ -132,4 +139,6 @@ public class SuratFragment extends Fragment {
         surat_item.tempat_tanggal = "Surabaya, 22 April 2017";
         surat_items.add(surat_item);
     }
+
+
 }

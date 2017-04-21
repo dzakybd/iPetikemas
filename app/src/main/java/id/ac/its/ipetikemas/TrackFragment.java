@@ -258,11 +258,11 @@ public class TrackFragment extends Fragment implements
         mMapView.onResume();
     }
 
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mMapView.onDestroy();
-    }
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        mMapView.onDestroy();
+//    }
 
     @Override
     public void onSaveInstanceState(Bundle outState) {
