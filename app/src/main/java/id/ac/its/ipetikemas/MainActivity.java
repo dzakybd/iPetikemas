@@ -23,27 +23,33 @@ import com.pixplicity.easyprefs.library.Prefs;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class MainActivity extends AppCompatActivity {
-    private ViewPager mViewPager;
-    private TabLayout tabLayout;
-    private int pesan,alert;
+    @BindView(R.id.toolbar)
+    Toolbar toolbar;
+    @BindView(R.id.tabs)
+    TabLayout tabLayout;
+    @BindView(R.id.container)
+    ViewPager mViewPager;
+    private int pesan, alert;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        ButterKnife.bind(this);
         setSupportActionBar(toolbar);
         String appname = getString(R.string.app_name);
         setTitle(appname);
-        pesan=2;
-        alert=1;
-        mViewPager = (ViewPager) findViewById(R.id.container);
+        pesan = 2;
+        alert = 1;
         setupViewPager(mViewPager);
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(mViewPager);
         setupTabIcons();
     }
+
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new TrackFragment(), "track");
@@ -52,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(2);
         viewPager.setAdapter(adapter);
     }
+
     private void setupTabIcons() {
         tabLayout.getTabAt(0).setIcon(new IconicsDrawable(this)
                 .icon(FontAwesome.Icon.faw_map)
@@ -95,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
             return mFragmentTitleList.get(position);
         }
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
@@ -118,21 +126,21 @@ public class MainActivity extends AppCompatActivity {
         } else if (id == R.id.alert) {
             Intent i = new Intent(this, Alert.class);
             startActivity(i);
-        }else if (id == R.id.out) {
+        } else if (id == R.id.out) {
             out();
         }
         return super.onOptionsItemSelected(item);
     }
 
-    private void out(){
+    private void out() {
         AlertDialog.Builder pilihan = new AlertDialog.Builder(this);
         pilihan.setMessage("Anda ingin keluar?");
         pilihan.setPositiveButton("Ya", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Prefs.clear();
-                    startActivity(new Intent(MainActivity.this, Login.class));
-                    finish();
+                startActivity(new Intent(MainActivity.this, Login.class));
+                finish();
             }
         });
         pilihan.setNegativeButton("Tidak", new DialogInterface.OnClickListener() {
