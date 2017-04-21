@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context="id.ac.its.ipetikemas.Lihat_Surat">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_scrollFlags="scroll|enterAlways"
+        >
+
+    </android.support.v7.widget.Toolbar>
+<LinearLayout
+    android:gravity="center"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:src="@drawable/tps"
+            />
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="@color/primary_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:text="Surat Tugas ITV\nPT Terminal Petikemas Surabaya"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textColor="@color/primary_text"
+            android:layout_marginTop="20dp"
+            android:id="@+id/nosurat"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="Nomor Surat : 1XXX"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/tanggal_tempat"
+            android:textColor="@color/primary_text"
+            android:textSize="15sp"
+            android:gravity="center"
+            android:text="Surabaya, 22 April 2017"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            android:columnCount="2"
+            android:rowCount="5">
+
+            <TextView
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Nomor ITV"
+                />
+
+            <TextView
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:id="@+id/noitv"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="L 123"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Nama Supir"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:id="@+id/nama"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Andi"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Nomor Muatan"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:id="@+id/nocontainer"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="A1"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Blok Muatan"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:id="@+id/blok"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="A"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Berakhir"
+                />
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:textColor="@color/primary_text"
+                android:textSize="15sp"
+                android:id="@+id/berakhir"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="22 April 2017 - 18.00"
+                />
+        </GridLayout>
+    <LinearLayout
+        android:layout_gravity="center_horizontal"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:paddingLeft="8dp"
+        android:weightSum="2">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:text="Status"
+            android:textSize="10sp" />
+
+        <TextView
+            android:id="@+id/status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1.8"
+            android:gravity="center"
+            android:textSize="15sp"
+            android:text="Selesai"
+            android:textColor="@android:color/holo_green_light"
+            android:textStyle="bold" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

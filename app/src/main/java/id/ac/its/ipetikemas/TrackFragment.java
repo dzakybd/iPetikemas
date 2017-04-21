@@ -95,9 +95,9 @@ public class TrackFragment extends Fragment implements
         mMapView.onCreate(savedInstanceState);
         mMapView.getMapAsync(this);
         string_nama="Andi";
-        string_nocon="L123";
-        string_noitv="A1";
-        string_blok="L";
+        string_nocon="A1";
+        string_noitv="L 123 HA";
+        string_blok="A";
         blok.setText(string_blok);
         nama.setText(string_nama);
         noitv.setText(string_noitv);
@@ -205,7 +205,7 @@ public class TrackFragment extends Fragment implements
                     }
                 });
         LatLngBounds bounds = builder.build();
-        mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
+        //mGoogleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 50));
     }
 
     public void mapsetted(double lat, double lng, double lat2, double lng2) {

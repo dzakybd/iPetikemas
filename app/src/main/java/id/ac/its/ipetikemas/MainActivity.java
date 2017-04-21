@@ -43,8 +43,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         String appname = getString(R.string.app_name);
         setTitle(appname);
-        pesan = 2;
-        alert = 1;
+        pesan = 3;
+        alert = 2;
         setupViewPager(mViewPager);
         tabLayout.setupWithViewPager(mViewPager);
         setupTabIcons();
